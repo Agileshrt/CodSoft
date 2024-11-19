@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agilesh's Portfolio</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <style>
+  
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+    line-height: 1.6;
+}
+
+
+.header {
+    background-color: #FFD700;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.profile-pic {
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+}
+.profile img{
+    width:150px;
+    height:150px;
+}
+
+.profile-text h1 {
+    font-size: 2.5rem;
+    margin: 0;
+}
+
+.profile-text p {
+    margin-top: 10px;
+    color: #555;
+}
+
+
+.skills {
+    background-color: #fff;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+}
+
+.skill-card {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    width: 200px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.skill-card h3 {
+    margin-bottom: 10px;
+}
+
+.skill-card p {
+    color: #555;
+}
+
+
+.projects {
+    background-color: #f4f4f4;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.project-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.project-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    padding: 20px;
+    text-align: left;
+}
+
+.project-card img {
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+
+.resume {
+    background-color: #fff;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.btn-resume {
+    background-color: #333;
+    color: white;
+    padding: 12px 30px;
+    font-size: 1.2rem;
+    border-radius: 30px;
+    text-decoration: none;
+}
+
+.btn-resume:hover {
+    background-color: #FFD700;
+}
+
+
+.contact {
+    background-color: #FFD700;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.contact-details a {
+    color: #333;
+    text-decoration: none;
+}
+
+.contact-details a:hover {
+    color: #e44d26;
+}
+
+.footer {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.social-links a {
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+.social-links a:hover {
+    color: #FFD700;
+}
+
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="container header-content">
+            <div class="profile">
+                <img src="mmyphoto2.jpeg" alt="Profile Picture" class="profile-pic">
+                <div class="profile-text">
+                    <h1>AGILESH R</h1>
+                    <p>A Passionate Web Developer & Designer</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2>My Skills</h2><br>
+            <div class="skills-container">
+                <div class="skill-card">
+                    <h3>HTML</h3>
+                    <p>Structured and semantic markup.</p>
+                </div>
+                <div class="skill-card">
+                    <h3>CSS</h3>
+                    <p>Responsive and modern designs.</p>
+                </div>
+                <div class="skill-card">
+                    <h3>JavaScript</h3>
+                    <p>Interactive web experiences.</p>
+                </div>
+                <div class="skill-card">
+                    <h3>Python</h3>
+                    <p>Backend and automation expertise.</p>
+                </div>
+                <div class="skill-card">
+                    <h3>React</h3>
+                    <p>Dynamic front-end applications.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2>My Projects</h2>
+            <div class="project-grid">
+                <div class="project-card">
+                    <img src="photo1.jpeg" alt="Project 1">
+                    <h3>School Management System</h3>
+                    <p>This is a web application built with React.js. It allows users to interact dynamically and seamlessly.</p>
+                </div>
+                <div class="project-card">
+                    <img src="photo3.png" alt="Project 2">
+                    <h3>To-Do List</h3>
+                    <p>This is a web application built with Html&css. It allows users to interact dynamically and seamlessly.</p>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+
+    <section id="resume" class="resume">
+        <div class="container">
+            <h2>My Resume</h2><br>
+           
+            <a href="AGILESH (1).pdf" download="YourName_Resume.pdf" class="btn-resume">Download My Resume</a>
+        </div>
+    </section>
+
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Contact Me</h2>
+            
+            <div class="contact-details">
+                <p>Email: <a href="mailto:yourname@example.com">agileshrt23@gmail.com</a></p>
+                <p>Phone: +91 8248993404</p>
+                <p>Linkedin: <a href="mailto:yourname@example.com">www.linkedin.com/in/Agileshrt</a></p>
+            </div>
+        </div>
+    </section>
+
+
+    <footer class="footer">
+        <div class="container">
+            <p>© 2024 Agilesh R. All Rights Reserved.</p>
+            <div class="social-links">
+                <a href="https://www.linkedin.com" target="_blank">LinkedIn</a>
+                <a href="https://www.github.com" target="_blank">GitHub</a>
+                <a href="https://twitter.com" target="_blank">Twitter</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

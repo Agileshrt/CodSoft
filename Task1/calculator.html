@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agilesh's Calculator</title>
+    <style>
+        /* Reset styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: radial-gradient(circle, #ff7eb3, #ff758f);
+}
+
+.calculator {
+    width: 340px;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2), 0 0 30px rgba(255, 255, 255, 0.1);
+    background: linear-gradient(145deg, #434857, #2a2f3e);
+    transform: perspective(600px) rotateX(10deg);
+    animation: calculatorEntrance 0.8s ease-in-out forwards;
+}
+
+.calculator-display {
+    background: linear-gradient(145deg, #292b34, #3c4050);
+    color: #ffffff;
+    font-size: 2.2em;
+    padding: 20px;
+    text-align: right;
+    border-radius: 15px;
+    margin-bottom: 15px;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.calculator-buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.button {
+    background: linear-gradient(145deg, #393d4e, #1f2231);
+    border: none;
+    color: #ffffff;
+    font-size: 1.4em;
+    padding: 20px;
+    cursor: pointer;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.4);
+    background: linear-gradient(145deg, #3e495e, #2b364a);
+}
+
+.clear {
+    background: linear-gradient(145deg, #ff3f3f, #ff7575);
+}
+
+.clear:hover {
+    background: linear-gradient(145deg, #ff6f6f, #ff4f4f);
+    transform: translateY(-5px);
+}
+
+.operator {
+    background: linear-gradient(145deg, #3a3a3a, #1a1a2e);
+}
+
+.operator:hover {
+    background: linear-gradient(145deg, #e94560, #ff758f);
+}
+
+.zero {
+    grid-column: span 2;
+}
+
+.equals {
+    background: linear-gradient(145deg, #1e90ff, #00bfff);
+    color: white;
+}
+
+.equals:hover {
+    background: linear-gradient(145deg, #00aaff, #1e7cff);
+}
+
+/* Animation keyframes */
+@keyframes calculatorEntrance {
+    from {
+        opacity: 0;
+        transform: perspective(600px) rotateX(-15deg) translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: perspective(600px) rotateX(0deg) translateY(0);
+    }
+}
+
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <div class="calculator-display" id="display">0</div>
+        <div class="calculator-buttons">
+            <button onclick="clearDisplay()" class="button clear">C</button>
+            <button onclick="deleteLast()" class="button">⌫</button>
+            <button onclick="appendOperator('%')" class="button">%</button>
+            <button onclick="appendOperator('/')" class="button operator">÷</button>
+
+            <button onclick="appendNumber('7')" class="button">7</button>
+            <button onclick="appendNumber('8')" class="button">8</button>
+            <button onclick="appendNumber('9')" class="button">9</button>
+            <button onclick="appendOperator('*')" class="button operator">×</button>
+
+            <button onclick="appendNumber('4')" class="button">4</button>
+            <button onclick="appendNumber('5')" class="button">5</button>
+            <button onclick="appendNumber('6')" class="button">6</button>
+            <button onclick="appendOperator('-')" class="button operator">−</button>
+
+            <button onclick="appendNumber('1')" class="button">1</button>
+            <button onclick="appendNumber('2')" class="button">2</button>
+            <button onclick="appendNumber('3')" class="button">3</button>
+            <button onclick="appendOperator('+')" class="button operator">+</button>
+
+            <button onclick="appendNumber('0')" class="button zero">0</button>
+            <button onclick="appendNumber('.')" class="button">.</button>
+            <button onclick="calculate()" class="button equals">=</button>
+        </div>
+    </div>
+    <script>
+let display = document.getElementById("display");
+let currentInput = "0";
+let operator = null;
+let firstOperand = null;
+
+function appendNumber(number) {
+    if (currentInput === "0") {
+        currentInput = number;
+    } else {
+        currentInput += number;
+    }
+    updateDisplay();
+}
+
+function appendOperator(op) {
+    if (operator !== null) {
+        calculate();
+    }
+    firstOperand = parseFloat(currentInput);
+    operator = op;
+    currentInput = "";
+}
+
+function calculate() {
+    if (operator === null || currentInput === "") return;
+    let secondOperand = parseFloat(currentInput);
+    switch (operator) {
+        case "+":
+            currentInput = firstOperand + secondOperand;
+            break;
+        case "-":
+            currentInput = firstOperand - secondOperand;
+            break;
+        case "*":
+            currentInput = firstOperand * secondOperand;
+            break;
+        case "/":
+            currentInput = firstOperand / secondOperand;
+            break;
+        case "%":
+            currentInput = firstOperand % secondOperand;
+            break;
+    }
+    operator = null;
+    firstOperand = null;
+    currentInput = currentInput.toString();
+    updateDisplay();
+}
+
+function clearDisplay() {
+    currentInput = "0";
+    operator = null;
+    firstOperand = null;
+    updateDisplay();
+}
+
+function deleteLast() {
+    if (currentInput.length > 1) {
+        currentInput = currentInput.slice(0, -1);
+    } else {
+        currentInput = "0";
+    }
+    updateDisplay();
+}
+
+function updateDisplay() {
+    display.innerText = currentInput;
+}
+
+    </script>
+</body>
+</html>
